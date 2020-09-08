@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SkalProj_Datastrukturer_Minne
 {
@@ -71,14 +72,40 @@ namespace SkalProj_Datastrukturer_Minne
              * As a default case, tell them to use only + or -
              * Below you can see some inspirational code to begin working.
             */
+            
+            List<string> theList = new List<string>();
+            while (true)
+            {
+                Console.WriteLine("Please navigate through the menu by inputting the \n(+, -, 0) of your choice"
+                    + "\n+. Add"
+                    + "\n-. Remove"
+                    + "\n0 Exit");
 
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
 
-            //switch(nav){...}
-        }
+                string input = Console.ReadLine();
+                char nav = input[0];
+                string value = input.Substring(1);
+                switch (nav)
+                {
+                    case '+':
+                        theList.Add(value);
+                        Console.WriteLine($"Capacity: {theList.Capacity} Count: {theList.Count}");
+                        break;
+                    case '-':
+                        theList.Remove(value); 
+                        Console.WriteLine($"Capacity: {theList.Capacity} Count: {theList.Count}");
+                        break;
+                    case '0':
+                        return;
+                    default:
+                        Console.WriteLine("Please enter some valid input (+, -, 0");
+                        break;
+                }
+            }
+
+
+            
+    }
 
         /// <summary>
         /// Examines the datastructure Queue
@@ -90,6 +117,36 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+            Queue<string> theQueue = new Queue<string>();
+            while (true)
+            {
+                Console.WriteLine("Please navigate through the menu by inputting the \n(+, -, 0) of your choice"
+                    + "\n+. Add"
+                    + "\n-. Remove"
+                    + "\n0 Exit the application");
+                string input = Console.ReadLine();
+                char nav = input[0];
+                string value = input.Substring(1);
+
+                switch (nav)
+                {
+                    case '+':
+                        theQueue.Enqueue(value);
+                        break;
+                    case '-':
+                        theQueue.Dequeue();
+                        break;
+                    case '0':
+                        return;
+
+                    default:
+                        Console.WriteLine("Please enter some valid input(+, -, 0");
+                        break;
+                }
+
+
+            }
+            
         }
 
         /// <summary>
@@ -102,6 +159,35 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+            Stack<string> theStack = new Stack<string>();
+            while (true)
+            {
+                Console.WriteLine("Please navigate through the menu by inputting the \n(+, -, 0) of your choice"
+                    + "\n+. Add"
+                    + "\n-. Remove"
+                    + "\n0 Exit the application");
+                string input = Console.ReadLine();
+                char nav = input[0];
+                string value = input.Substring(1);
+
+                switch (nav)
+                {
+                    case '+':
+                        theStack.Push(value);
+                        break;
+                    case '-':
+                        theStack.Pop();
+                        break;
+                    case '0':
+                        return;
+
+                    default:
+                        Console.WriteLine("Please enter some valid input(+, -, 0");
+                        break;
+                }
+
+
+            }
         }
 
         static void CheckParanthesis()
@@ -111,6 +197,8 @@ namespace SkalProj_Datastrukturer_Minne
              * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
+            string userInput = Console.ReadLine();
+
 
         }
 
