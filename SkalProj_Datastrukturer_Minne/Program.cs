@@ -147,8 +147,16 @@ namespace SkalProj_Datastrukturer_Minne
                         Console.WriteLine($"Count: {theQueue.Count}");
                         break;
                     case '-':
-                        theQueue.Dequeue();
-                        Console.WriteLine($"Count: {theQueue.Count}");
+                        //Tips: Hantera Undantaget som kastas när man försöker anropa Dequeue() på tom lista.
+                        try
+                        {
+                            theQueue.Dequeue();
+                            Console.WriteLine($"Count: {theQueue.Count}");
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            Console.WriteLine("Queue is already empty");
+                        }
                         break;
                     case '0':
                         return;
@@ -191,8 +199,15 @@ namespace SkalProj_Datastrukturer_Minne
                         Console.WriteLine($"Count: {theStack.Count}");
                         break;
                     case '-':
-                        theStack.Pop();
-                        Console.WriteLine($"Count: {theStack.Count}");
+                        try
+                        {
+                            theStack.Pop();
+                            Console.WriteLine($"Count: {theStack.Count}");
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            Console.WriteLine("The stack is already empty");
+                        }
                         break;
                     case '0':
                         return;
