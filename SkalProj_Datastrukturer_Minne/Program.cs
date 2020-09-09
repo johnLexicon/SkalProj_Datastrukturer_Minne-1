@@ -42,7 +42,19 @@ namespace SkalProj_Datastrukturer_Minne
                         ExamineStack();
                         break;
                     case '4':
-                        CheckParanthesis();
+                        Console.WriteLine("Check Paranthesis");
+                        string user = Console.ReadLine();
+                        
+                        var result = CheckParanthesis(user);
+                        if (result == true)
+                        {
+                            Console.WriteLine("Your paranthesis is right");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your paranthesis is wrong");
+                        }
+
                         break;
                     /*
                      * Extend the menu to include the recursive 
@@ -194,14 +206,47 @@ namespace SkalProj_Datastrukturer_Minne
             }
         }
 
-        static void CheckParanthesis()
+        static bool CheckParanthesis(string text)
         {
             /*
              * Use this method to check if the paranthesis in a string is Correct or incorrect.
              * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
-            string userInput = Console.ReadLine();
+
+            Stack<char> stack = new Stack<char>();
+
+            foreach (var ch in text)
+            {
+                switch (ch)
+                {
+                    case '(':
+                        stack.Push((char)(ch + 1));
+                        break;
+                    case '[':
+                    case '{':
+                        stack.Push((char)(ch + 2));
+                        break;
+                    case ')':
+                    case ']':
+                    case '}':
+                        if (stack.Count == 0 || !ch.Equals(stack.Pop()))
+                        {
+
+                            return false;
+                        }
+                        break;
+                    
+                }
+
+            }
+            if (stack.Count > 0)
+            {
+                return false;
+            }
+
+            return true;
+            
 
 
         }
