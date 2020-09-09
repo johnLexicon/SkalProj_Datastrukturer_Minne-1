@@ -77,9 +77,9 @@ namespace SkalProj_Datastrukturer_Minne
             while (true)
             {
                 Console.WriteLine("Please navigate through the menu by inputting the \n(+, -, 0) of your choice"
-                    + "\n+. Add"
-                    + "\n-. Remove"
-                    + "\n0 Exit");
+                    + "\n+. Add to list"
+                    + "\n-. Remove from list"
+                    + "\n0 Exit from list program");
 
 
                 string input = Console.ReadLine();
@@ -121,9 +121,9 @@ namespace SkalProj_Datastrukturer_Minne
             while (true)
             {
                 Console.WriteLine("Please navigate through the menu by inputting the \n(+, -, 0) of your choice"
-                    + "\n+. Add"
-                    + "\n-. Remove"
-                    + "\n0 Exit the application");
+                    + "\n+. Add to queue"
+                    + "\n-. Remove from queue"
+                    + "\n0 Exit from queue");
                 string input = Console.ReadLine();
                 char nav = input[0];
                 string value = input.Substring(1);
@@ -132,9 +132,11 @@ namespace SkalProj_Datastrukturer_Minne
                 {
                     case '+':
                         theQueue.Enqueue(value);
+                        Console.WriteLine($"Count: {theQueue.Count}");
                         break;
                     case '-':
                         theQueue.Dequeue();
+                        Console.WriteLine($"Count: {theQueue.Count}");
                         break;
                     case '0':
                         return;
@@ -163,9 +165,9 @@ namespace SkalProj_Datastrukturer_Minne
             while (true)
             {
                 Console.WriteLine("Please navigate through the menu by inputting the \n(+, -, 0) of your choice"
-                    + "\n+. Add"
-                    + "\n-. Remove"
-                    + "\n0 Exit the application");
+                    + "\n+. Add to stack"
+                    + "\n-. Remove from stack"
+                    + "\n0 Exit from stack");
                 string input = Console.ReadLine();
                 char nav = input[0];
                 string value = input.Substring(1);
@@ -174,9 +176,11 @@ namespace SkalProj_Datastrukturer_Minne
                 {
                     case '+':
                         theStack.Push(value);
+                        Console.WriteLine($"Count: {theStack.Count}");
                         break;
                     case '-':
                         theStack.Pop();
+                        Console.WriteLine($"Count: {theStack.Count}");
                         break;
                     case '0':
                         return;
